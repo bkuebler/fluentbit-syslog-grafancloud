@@ -21,7 +21,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/fluentbit-syslog-grafanacloud
+            bkuebler/fluentbit-syslog-grafanacloud
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -49,6 +49,6 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
-          subject-name: index.docker.io/${{ secrets.DOCKERHUB_USERNAME}}/fluentbit-syslog-grafanacloud
+          subject-name: index.docker.io/bkuebler/fluentbit-syslog-grafanacloud
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
