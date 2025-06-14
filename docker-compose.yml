@@ -1,0 +1,10 @@
+services:
+  syslog-exporter:
+    image: "${DOCKERHUB_USERNAME:-local}/fluentbit-syslog-grafanacloud:${TAG:-latest}"
+    build: .
+    container_name: syslog-exporter
+    env_file: .env
+    ports:
+      - "2020:2020/tcp"
+      - "10514:514/udp"
+      - "10514:514/tcp"
